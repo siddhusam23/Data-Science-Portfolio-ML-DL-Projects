@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IDS — System Metrics Dashboard</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <header>
+            <h1>System Metrics Dashboard</h1>
+            <span id="anomaly-banner" class="banner"></span>
+        </header>
+
+        <div class="metrics-grid">
+            <div class="card">
+                <h2>CPU Usage</h2>
+                <canvas id="cpu-chart"></canvas>
+                <p id="cpu-value" class="metric-value">--%</p>
+            </div>
+            <div class="card">
+                <h2>Memory Usage</h2>
+                <canvas id="memory-chart"></canvas>
+                <p id="memory-value" class="metric-value">--%</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Recent Anomalies</h2>
+            <ul id="anomaly-list"></ul>
+        </div>
+    </div>
+
+    <script src="/static/js/dashboard.js"></script>
+</body>
+</html>

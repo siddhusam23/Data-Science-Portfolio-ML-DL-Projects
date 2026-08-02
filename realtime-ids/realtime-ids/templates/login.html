@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IDS — Login</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="login-container">
+        <h1>System Monitor Login</h1>
+        <form id="login-form">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" autocomplete="username" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" autocomplete="current-password" required>
+
+            <button type="submit">Login</button>
+            <p id="login-error" class="error"></p>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorEl = document.getElementById('login-error');
+            errorEl.textContent = '';
+
+            try {
+                const res = await fetch('/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password })
+                });
+                const data = await res.json();
+
+                if (res.ok) {
+                    localStorage.setItem('ids_token', data.token);
+                    window.location.href = '/dashboard';
+                } else {
+                    errorEl.textContent = data.error || 'Login failed';
+                }
+            } catch (err) {
+                errorEl.textContent = 'Unable to reach the server.';
+            }
+        });
+    </script>
+</body>
+</html>
