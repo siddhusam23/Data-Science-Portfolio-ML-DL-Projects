@@ -5,9 +5,7 @@ metrics in real time, flags anomalies against configurable thresholds,
 tamper-proofs alerts with RSA digital signatures, and exposes a
 JWT-authenticated dashboard and API.
 
-Vinay Nambiar · Siddhesh T S
-Department of Computer Science and Engineering, Amrita School of Computing,
-Bengaluru, Amrita Vishwa Vidyapeetham, India
+ Siddhesh T S
 
 ## Overview
 
