@@ -1,0 +1,9 @@
+pandas>=1.5
+numpy>=1.23
+matplotlib>=3.6
+seaborn>=0.12
+scikit-learn>=1.2
+jupyter>=1.0
+
+# Optional: only needed to run the PySpark MLlib cells in the notebook
+pyspark>=3.4
